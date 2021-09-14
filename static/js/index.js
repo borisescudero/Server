@@ -4,21 +4,24 @@ function LED1_On() {
 	//alert("led on");
 	console.log("led on");
 	//document.getElementById("sensor").innerHTML="led on";
-	message = new Paho.MQTT.Message("ON");
-    	message.destinationName = "lfrenteriax@hotmail.com/test1";
+	message = new Paho.MQTT.Message("Led Encendido");
+    	message.destinationName = "borisescudero1@gmail.com/T1";
     	client.send(message);
-  
+      
+
 }
+
+
 function LED1_Off(){	
 	//alert("led off");
 	console.log("led off");
-	message = new Paho.MQTT.Message("OFF");
-    	message.destinationName = "lfrenteriax@hotmail.com/test1";
+	message = new Paho.MQTT.Message("Led Apagado");
+    	message.destinationName = "borisescudero1@gmail.com/T1";
     	client.send(message);
 	//document.getElementById("sensor").innerHTML="led off";
 }
-
-
+    
+  
 
 
 
@@ -33,8 +36,8 @@ function LED1_Off(){
   client.onMessageArrived = onMessageArrived;
   var options = {
    useSSL: false,
-    userName: "lfrenteriax@hotmail.com",
-    password: "lfrenteriax",
+    userName: "borisescudero1@gmail.com",
+    password: "1805116199Boris.",
     onSuccess:onConnect,
     onFailure:doFail
   }
@@ -47,11 +50,11 @@ function LED1_Off(){
     // Once a connection has been made, make a subscription and send a message.
     console.log("Conectado...");
 	
-    client.subscribe("lfrenteriax@hotmail.com/test");
+    client.subscribe("borisescudero1@gmail.com/T2");
     message = new Paho.MQTT.Message("hola desde la web");
-    message.destinationName = "lfrenteriax@hotmail.com/test1";
+    message.destinationName = "borisescudero1@gmail.com/T1";
     client.send(message);
-	
+
   }
 
   function doFail(e){
@@ -70,5 +73,22 @@ function LED1_Off(){
   function onMessageArrived(message) {
     console.log("onMessageArrived:"+message.payloadString);
 	  document.getElementById("sensor").innerHTML=message.payloadString;
+
   }
+  function LED1_On(){
+  {document.getElementById('sensor').innerHTML='Led Encendido';}
+console.log('SE presiono el boton 1:')
+  ;}
+function LED1_Off(){
+  {document.getElementById('sensor').innerHTML='Led Apagado';}
+console.log('SE presiono el boton 2:')
+  ;}
+  function Hiii(){
+  {document.getElementById('sensor1').innerHTML='Boris Escudero';}
+console.log('SE presiono el boton 3:')
+  ;}
+function Hii(){
+  {document.getElementById('sensor1').innerHTML='Quinto Semestre';}
+console.log('SE presiono el boton 4:')
+  ;}  
   
