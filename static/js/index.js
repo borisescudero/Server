@@ -4,7 +4,7 @@ function LED1_On() {
 	//alert("led on");
 	console.log("led on");
 	//document.getElementById("sensor").innerHTML="led on";
-	message = new Paho.MQTT.Message("Led Encendido");
+	message = new Paho.MQTT.Message("ON");
     	message.destinationName = "borisescudero1@gmail.com/T1";
     	client.send(message);
       
@@ -15,7 +15,7 @@ function LED1_On() {
 function LED1_Off(){	
 	//alert("led off");
 	console.log("led off");
-	message = new Paho.MQTT.Message("Led Apagado");
+	message = new Paho.MQTT.Message("OFF");
     	message.destinationName = "borisescudero1@gmail.com/T1";
     	client.send(message);
 	//document.getElementById("sensor").innerHTML="led off";
@@ -72,17 +72,12 @@ function LED1_Off(){
   // called when a message arrives
   function onMessageArrived(message) {
     console.log("onMessageArrived:"+message.payloadString);
-	  document.getElementById("sensor1").innerHTML=message.payloadString;
+    var la=message.payloadString.split("-");
+	  document.getElementById("sensor").innerHTML=la[0];
+    document.getElementById("sensor1").innerHTML=la[1];
 
   }
-  function LED1_On(){
-  {document.getElementById('sensor').innerHTML='Led Encendido';}
-console.log('SE presiono el boton 1:')
-  ;}
-function LED1_Off(){
-  {document.getElementById('sensor').innerHTML='Led Apagado';}
-console.log('SE presiono el boton 2:')
-  ;}
+ 
   function Hiii(){
   {document.getElementById('sensor1').innerHTML='Boris Escudero';}
 console.log('SE presiono el boton 3:')
