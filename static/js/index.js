@@ -79,11 +79,11 @@ function LED1_Off(){
   }
  
   function Hiii(){
-  {document.getElementById('sensor').innerHTML='Boris Escudero';}
+  {document.getElementById('sensor').innerHTML='Encendido';}
 console.log('SE presiono el boton 3:')
   ;}
 function Hii(){
-  {document.getElementById('sensor1').innerHTML='Quinto Semestre';}
+  {document.getElementById('sensor1').innerHTML='Apagado';}
 console.log('SE presiono el boton 4:')
   ;}  
   
